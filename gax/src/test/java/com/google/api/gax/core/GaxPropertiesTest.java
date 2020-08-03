@@ -29,6 +29,7 @@
  */
 package com.google.api.gax.core;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.regex.Pattern;
@@ -42,6 +43,7 @@ public class GaxPropertiesTest {
   @Test
   public void testGaxVersion() {
     String gaxVersion = GaxProperties.getGaxVersion();
+    assertEquals("1.58.0", gaxVersion);
     assertTrue(Pattern.compile("^\\d+\\.\\d+\\.\\d+").matcher(gaxVersion).find());
     String[] versionComponents = gaxVersion.split("\\.");
     // This test was added in version 1.56.0, so check that the major and minor numbers are greater
